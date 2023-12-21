@@ -1,9 +1,16 @@
+## Zola stuff
+## Customize these as you see fit, unless otherwise specified.
 base_url = "https://anemone.pages.dev"
 description = "A minimalist Zola theme that prioritizes clean CSS and avoids heavy JavaScript. Enjoy a seamless user experience with lightning-fast load times. Let your content take center stage in a clutter-free, elegant design that enhances readability. Responsive and efficient, anemone brings focus to your ideas."
 compile_sass = false
-minify_html = true
 generate_feed = true
 default_language = "en"
+
+# IMPORTANT! Keep this disabled: HTML minifying currently breaks our CSS!
+# We use CSS in <style> blocks to allow configuring colors from here.
+# Until https://github.com/getzola/zola/pull/2242 is merged, there likely
+# won't be a cleaner way to achieve this.
+minify_html = false
 
 taxonomies = [
     {name = "tags", feed = true},
@@ -18,8 +25,18 @@ languageCode = "fr"
 render_emoji = true
 external_links_target_blank = true
 smart_punctuation = true
-highlight_code = false
-highlight_theme = "gruvbox-dark"
+highlight_code = true
+
+# If you use CSS mode, make sure to add two themes - one for light mode,
+# one for dark mode. In particular, hl-dark.css and hl-light.css are the
+# default names. If you wish to use different names, set the properties
+# highlighting_css_dark and highlighting_css_light under extra.
+# TODO: move them under extra.colors.
+highlight_theme = "css"
+highlight_themes_css = [
+  { theme = "agola-dark", filename = "hl-dark.css" },
+  { theme = "idle", filename = "hl-light.css" }
+]
 
 [slugify]
 paths = "on"
@@ -30,15 +47,15 @@ anchors = "on"
 internal_level = "warn"
 
 [extra]
-author = "Speyll"
-display_author = true
-
+# Stuff inherited from anemone
+# TODO: ensure they still work properly, or remove.
 favicon = "favicon.ico"
-image = ""
-
-default_theme = "light"
 list_pages = false
 twitter_card = true
+
+# Default theme when people join the site. "dark" and "light" are the
+# only valid values. By default, it's dark.
+default_theme = "dark"
 
 header_nav = [
   { url = "/", name_en = "/home/", name_fr = "/accueil/" },
@@ -46,3 +63,35 @@ header_nav = [
   { url = "/journal", name_en = "/journal/", name_fr = "/journal/" },
   { url = "/blog", name_en = "/blog/", name_fr = "/blog/" }
 ]
+
+# Stuff inspired by hello-friend-ng, allows you to present a simple yet complete homepage
+# TODO: move this stuff under a separate tag
+home_title = "zaaarf"
+home_subtitle = "developer, software engineer"
+home_subtitle_suffixes = [
+	", this",
+	
+]
+
+# Social icons, list here: https://github.com/rhazdon/hugo-theme-hello-friend-ng/blob/master/layouts/partials/svg.html
+social_icons = [
+	{ name = "github", url = "https://github.com/zaaarf" },
+	{ name = "codeberg", url = "https://codeberg.org/zaaarf" },
+	{ name = "matrix", url = "https://matrix.to/#/@zaaarf:fantabos.co" },
+	{ name = "email", url = "mailto:me@zaaarf.foo" }
+]
+
+logo = { text = "> $ cd ~/zaaarf/" }
+
+# Valid keys are "post" and "list", one referring to individual blogposts,
+# the other referring to lists of posts in sections.
+# You may set "list" to whitespace(s) to disable displaying dates in sections.
+# Refer to https://docs.rs/chrono/0.4.31/chrono/format/strftime/index.html
+# for formatting instructions.
+[extra.date_format]
+
+[extra.colors.dark]
+meta_color = "#FF4D17"
+
+[extra.colors.light]
+meta_color = "#e08f67"

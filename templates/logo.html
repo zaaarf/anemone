@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="logo.css">
+<a href="{% if config.extra.logo.url %}{{ config.extra.logo.url }}{% else %}{{ config.base_url }}{% endif %}" style="text-decoration: none; float: left;">
+    <div class="logo">
+        {% if config.extra.logo.path %}
+            <img src="{{ config.extra.logo.path }}"
+            {% if config.extra.logo.alt %}
+                alt="{{ config.extra.logo.alt }}"
+            {% endif %}
+            />
+        {% else %}
+            <span class="logo__text">
+                {% if config.extra.logo.text %}{{ config.extra.logo.text }}{% else %}home{% endif %}
+            </span>
+            <span class="logo__cursor" style="
+                {% if config.extra.logo.cursor.enabled %}
+                    {% if config.extra.logo.cursor.enabled != true %}
+                        visibility: hidden;
+                    {% endif %}
+                {% endif %}
+                {% if config.extra.logo.cursor.color %}
+                    background-color: {{ config.extra.logo.cursor.color }};
+                {% endif %}
+                {% if config.extra.logo.cursor.animate %}
+                    animation-duration: {{ config.extra.logo.cursor.animate }};
+                {% endif %}
+            ">
+            </span>
+        {% endif %}
+    </div>
+</a>
