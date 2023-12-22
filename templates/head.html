@@ -39,7 +39,11 @@
 {% set url = config.base_url %}
 {% endif %}
 {% if title %}
+{% if title == config.title %}
 <title>{{ title }}</title>
+{% else %}
+<title>{{config.title }} :: {{ title }}</title>
+{% endif %}
 {% endif %}
 {% block metatags %}
 {% if title %}
@@ -91,7 +95,7 @@
 {% endif %}
 {% block css %}
 <link rel="stylesheet" href="{{ get_url(path='css/style.css', trailing_slash=false) | safe }}"/>
-<link rel="stylesheet" href="logo.css"/>
+<link rel="stylesheet" href="{{ get_url(path='logo.css', trailing_slash=false) | safe }}"/>
 {% endblock css %}
 <script>
 const setTheme = (theme) => {
