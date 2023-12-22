@@ -8,10 +8,23 @@
     <h1>{{ config.title }}</h1>
     {% endif %}
     {% if config.extra.home_subtitle %}
-        <p>{{ config.extra.home_subtitle }}</p>
+        <p>{{ config.extra.home_subtitle }}<span id="subtitleRand"></span></p>
     {% elif config.description %}
-        <p>{{ config.description }}</p>
+        <p>{{ config.description }}<span id="subtitleRand"></span></p>
     {% endif %}
     {% include "svg.html" %}
 </div>
+{% if config.extra.home_subtitle_suffixes %}
+
+<script>
+const suffixes = [
+    {% for s in config.extra.home_subtitle_suffixes %}
+    "{{ s }}",
+    {% endfor %}
+]
+var current = suffixes[Math.floor(Math.random() * suffixes.length)];
+var span = document.getElementById("subtitleRand");
+span.textContent = current;
+</script>
+{% endif %}
 {% endblock content %}

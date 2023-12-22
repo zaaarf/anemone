@@ -87,6 +87,7 @@
 {% if image %}
 <link rel="shortcut icon" type="image/x-icon" href="{{ get_url(path=config.extra.favicon, trailing_slash=false) }}">
 {% endif %}
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 {% endblock metatags %}
 {% if config.generate_feed %}
 {% block feed %}
