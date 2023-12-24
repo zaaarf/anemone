@@ -1,6 +1,6 @@
 ::-moz-selection, ::selection {
 	color: var(--bgColor);
-	background: var(--fgCOlor);
+	background: var(--fgColor);
 }
 
 html {
@@ -28,7 +28,6 @@ h1 {
 	color: var(--bgColor);
 	background-color: var(--metaColor);
 	text-align: center;
-	text-wrap: balance;
 	
 	&::before {
 		color: var(--bgColor);
@@ -56,7 +55,7 @@ a {
 		color: var(--bgColor);
 	}
 
-	span.postDate {
+	span.contentDate {
 		color: var(--dateLinkColor);
 	}
 }
@@ -130,7 +129,6 @@ footer {
 /* Site Specific Styling */
 .wrapper {
 	min-height: 100vh;
-	min-height: 100svh;
 	display: grid;
 	grid-template-rows: auto 1fr auto;
 	gap: 2rem;
@@ -144,7 +142,6 @@ footer {
 	display: inline-block;
 	vertical-align: middle;
 	color: var(--fgColor);
-	fill: var(--fgColor);
 	background-color: transparent;
 
 	&__background:hover {
@@ -157,16 +154,20 @@ footer {
 	gap: .4rem;
 	flex-wrap: wrap;
 
-	a {
+	.navBarRight {
 		float: right;
-	}
-}
 
-.themeButton {
-	cursor: pointer;
-	border: none;
-	background-color: transparent;
-	float: right;
+		a {
+			padding: 0;
+		}
+
+		.themeButton {
+			float: right;
+			cursor: pointer;
+			border: none;
+			background: transparent;
+		}
+	}
 }
 
 .dark .themeButton.dark,
