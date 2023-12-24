@@ -1,0 +1,25 @@
+pre {
+	margin-top: 25px;
+	margin-bottom: 25px;
+	border: 1px solid var(--metaColor);
+	padding: 1rem;
+	font-style: monospace;
+	text-align: left;
+	white-space: pre-wrap;
+
+	code {
+		padding: 0;
+		border-radius: 0;
+		color: inherit;
+		background-color: inherit;
+	}
+}
+
+p code,
+li code,
+div code {
+	padding: 0 .2rem 0 .2rem;
+	border-radius: .3rem;
+	color: var(--bgColor);
+	background-color: var(--linkColor);
+}
