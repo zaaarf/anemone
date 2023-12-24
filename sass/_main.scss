@@ -57,7 +57,7 @@ a {
 	}
 
 	span.postDate {
-		color: var(--dimLinkColor);
+		color: var(--dateLinkColor);
 	}
 }
 
@@ -146,21 +146,20 @@ footer {
 	color: var(--fgColor);
 	fill: var(--fgColor);
 	background-color: transparent;
-}
 
-.icons__background:hover {
-	background-color: transparent;
-	color: var(--metaColor);
+	&__background:hover {
+		color: var(--linkColor);
+	}
 }
 
 .navBar {
 	padding: 1rem 0 0 0;
 	gap: .4rem;
 	flex-wrap: wrap;
-}
 
-.navBar a {
-	float: right;
+	a {
+		float: right;
+	}
 }
 
 .themeButton {
@@ -194,15 +193,15 @@ footer {
 
 .footnote-definition {
 	margin: 0 0 0 2rem;
-}
+	
+	&-label {
+		color: var(--metaColor);
+	}
 
-.footnote-definition-label {
-	color: var(--metaColor);
-}
-
-.footnote-definition p {
-	display: inline;
-	padding: 0 0 0 1rem;
+	p {
+		display: inline;
+		padding: 0 0 0 1rem;
+	}
 }
 
 .footContainer {

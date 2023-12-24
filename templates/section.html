@@ -14,7 +14,7 @@
 <ul class="titleList">
 {% for page in pages %}
 <li>
-	<a href="{{ page.permalink | safe }}">{{ page.title }}<span class="postDate"> @ {{ page.date }}</span></a>
+	<a href="{{ page.permalink | safe }}">{{ page.title }}{% if config.extra.show_date_paginator and config.extra.show_date_paginator == true %}<span class="postDate"> @ {{ page.date }}</span>{% endif %}</a>
 </li>
 {% endfor %}
 </ul>

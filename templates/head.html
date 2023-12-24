@@ -95,6 +95,24 @@
 {% endblock feed %}
 {% endif %}
 {% block css %}
+<style>
+:root,
+:root.dark {
+	--bgColor: {% if config.extra.colors.dark.background_color %}{{ config.extra.colors.dark.background_color }}{% else %}#222529{% endif %};
+	--fgColor: {% if config.extra.colors.dark.foreground_color %}{{ config.extra.colors.dark.foreground_color }}{% else %}#D6D6D6{% endif %};
+	--metaColor: {% if config.extra.colors.dark.meta_color %}{{ config.extra.colors.dark.meta_color }}{% else %}#78B6AD{% endif %};
+	--linkColor: {% if config.extra.colors.dark.link_color %}{{ config.extra.colors.dark.link_color }}{% else %}#DBD5BC{% endif %};
+	--dateLinkColor: {% if config.extra.colors.dark.date_link_color %}{{ config.extra.colors.dark.date_link_color }}{% else %}#6F6847{% endif %};
+}
+
+:root.light {
+	--bgColor: {% if config.extra.colors.light.background_color %}{{ config.extra.colors.light.background_color }}{% else %}#EEEEEE{% endif %};
+	--fgColor: {% if config.extra.colors.light.foreground_color %}{{ config.extra.colors.light.foreground_color }}{% else %}#41474E{% endif %};
+	--metaColor: {% if config.extra.colors.light.meta_color %}{{ config.extra.colors.light.meta_color }}{% else %}#D26878{% endif %};
+	--linkColor: {% if config.extra.colors.light.link_color %}{{ config.extra.colors.light.link_color }}{% else %}#5690AF{% endif %};
+	--dateLinkColor: {% if config.extra.colors.light.date_link_color %}{{ config.extra.colors.light.date_link_color }}{% else %}#223844{% endif %};
+}
+</style>
 <link rel="stylesheet" href="{{ get_url(path='style.css', trailing_slash=false) | safe }}"/>
 {% endblock css %}
 <script>
