@@ -28,11 +28,6 @@ h1 {
 	color: var(--bgColor);
 	background-color: var(--metaColor);
 	text-align: center;
-	
-	&::before {
-		color: var(--bgColor);
-		content: '# ';
-	}
 }
 
 h2, h3, h4, h5, h6 {
@@ -141,8 +136,9 @@ footer {
 	color: var(--fgColor);
 	background-color: transparent;
 
-	&__background:hover {
+	&__background:hover, &__background:focus {
 		color: var(--linkColor);
+		background-color: transparent;
 	}
 }
 
@@ -227,5 +223,9 @@ div.toc {
 
 	.wrapper {
 		margin: 1rem;
+	}
+
+	.footContainer {
+		justify-content: center; 
 	}
 }
