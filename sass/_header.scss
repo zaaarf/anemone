@@ -1,0 +1,50 @@
+.navBar {
+	padding: 1rem 0 0 0;
+	gap: .4rem;
+	flex-wrap: wrap;
+
+	.navBarRight {
+		float: right;
+
+		a {
+			padding: 0;
+		}
+	}
+
+	div.themeButton {
+			float: right;
+			padding: 0 0 0 1em;
+
+			button {
+				cursor: pointer;
+				border: none;
+				background: transparent;
+			}
+	}
+}
+
+.dark .themeButton.dark,
+.themeButton.light {
+	display: none
+}
+
+.dark .themeButton.light {
+	display: block
+}
+
+@media (max-width: 650px) {
+	.navBar {
+		display: flex;
+		flex-wrap: wrap;
+		align-items: center;
+		justify-content: center;
+
+		.navBarRight {
+			float: center;
+		}
+
+		.themeButton {
+			float: center;
+		}
+	}
+}

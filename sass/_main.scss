@@ -54,10 +54,6 @@ a {
 		background-color: var(--linkColor);
 		color: var(--bgColor);
 	}
-
-	span.contentDate {
-		color: var(--dateLinkColor);
-	}
 }
 
 ul {
@@ -131,6 +127,7 @@ footer {
 	min-height: 100vh;
 	display: grid;
 	grid-template-rows: auto 1fr auto;
+	grid-template-columns: minmax(180px, 1fr);
 	gap: 2rem;
 }
 
@@ -149,36 +146,6 @@ footer {
 	}
 }
 
-.navBar {
-	padding: 1rem 0 0 0;
-	gap: .4rem;
-	flex-wrap: wrap;
-
-	.navBarRight {
-		float: right;
-
-		a {
-			padding: 0;
-		}
-
-		.themeButton {
-			float: right;
-			cursor: pointer;
-			border: none;
-			background: transparent;
-		}
-	}
-}
-
-.dark .themeButton.dark,
-.themeButton.light {
-	display: none
-}
-
-.dark .themeButton.light {
-	display: block
-}
-
 .tagsData {
 	display: flex;
 	flex-direction: column;
@@ -190,6 +157,11 @@ footer {
 
 .titleList li {
 	margin-bottom: .75rem;
+	text-align: left;
+	
+	span.contentDate {
+		color: var(--dateLinkColor);
+	}
 }
 
 .footnote-definition {
@@ -243,6 +215,14 @@ div.toc {
 @media (max-width: 650px) {
 	body {
 		max-width: 100%;
+	}
+	
+	footer {
+		text-align: center;
+	}
+
+	 a span.contentDate {
+		display: none;
 	}
 
 	.wrapper {
