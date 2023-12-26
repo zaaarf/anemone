@@ -2,25 +2,25 @@
 
 {% block content %}
 <div class="homeContainer"><div class="home">
-    {% if config.extra.home_title %}
-    <h1>{{ config.extra.home_title }}</h1>
-    {% else %}
-    <h1>{{ config.title }}</h1>
-    {% endif %}
-    {% if config.extra.home_subtitle %}
-        <p>{{ config.extra.home_subtitle }}<span id="subtitleRand"></span></p>
-    {% elif config.description %}
-        <p>{{ config.description }}<span id="subtitleRand"></span></p>
-    {% endif %}
-    {% include "svg.html" %}
+	{% if config.extra.home_title %}
+	<h1>{{ config.extra.home_title }}</h1>
+	{% else %}
+	<h1>{{ config.title }}</h1>
+	{% endif %}
+	{% if config.extra.home_subtitle %}
+		<p>{{ config.extra.home_subtitle }}<span id="subtitleRand"></span></p>
+	{% elif config.description %}
+		<p>{{ config.description }}<span id="subtitleRand"></span></p>
+	{% endif %}
+	{% include "svg.html" %}
 </div></div>
 {% if config.extra.home_subtitle_suffixes %}
 
 <script>
 const suffixes = [
-    {% for s in config.extra.home_subtitle_suffixes %}
-    "{{ s }}",
-    {% endfor %}
+	{% for s in config.extra.home_subtitle_suffixes %}
+	"{{ s }}",
+	{% endfor %}
 ]
 var current = suffixes[Math.floor(Math.random() * suffixes.length)];
 var span = document.getElementById("subtitleRand");

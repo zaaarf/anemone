@@ -1,15 +1,15 @@
 <h1>{{ page.title }}</h1>
 
 {% if page.toc and page.extra.toc %}
-    {% include "toc.html" %}
+	{% include "toc.html" %}
 {% endif %}
 
 {{ page.content | safe }}
 
 <p class="tagsData">
-    {% if page.taxonomies.tags %}
-        {% for tag in page.taxonomies.tags %}
-            <a href="/tags/{{ tag | slugify }}">&#47;{{ tag }}&#47;</a>
-        {% endfor %}
-    {% endif %}
+	{% if page.taxonomies.tags %}
+		{% for tag in page.taxonomies.tags %}
+			<a href="/tags/{{ tag | slugify }}">&#47;{{ tag }}&#47;</a>
+		{% endfor %}
+	{% endif %}
 </p>

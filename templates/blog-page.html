@@ -4,11 +4,9 @@
 <div><a href="..">..</a>/<span class="metaData">{{ page.slug }}</span></div>
 <time datetime="{{ page.date }}">Published on: <span class="metaData">{{ page.date }}</span></time>
 {% if config.extra.author and config.extra.display_author == true %}
-<address rel="author">By <span class="metaData">{{config.extra.author}}</span></address>
+	<address rel="author">By <span class="metaData">{{config.extra.author}}</span></address>
 {% endif %}
 
-<article>
-{% include "base-page.html" %}
-</article>
+<article>{% include "base-page.html" %}</article>
 
 {% endblock content %}

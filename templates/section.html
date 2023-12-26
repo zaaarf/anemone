@@ -6,20 +6,18 @@
 {{ section.content | safe }}
 
 {% if paginator %}
-{% set pages = paginator.pages %}
+	{% set pages = paginator.pages %}
 {% else %}
-{% set pages = section.pages %}
+	{% set pages = section.pages %}
 {% endif %}
 
 <ul class="titleList">
-{% for page in pages %}
-<li>
-	<a href="{{ page.permalink | safe }}">{{ page.title }}{% if config.extra.show_date_paginator and config.extra.show_date_paginator == true %}<span class="contentDate"> @ {{ page.date }}</span>{% endif %}</a>
-</li>
-{% endfor %}
+	{% for page in pages %}
+		<li><a href="{{ page.permalink | safe }}">{{ page.title }}{% if config.extra.show_date_paginator and config.extra.show_date_paginator == true %}<span class="contentDate"> @ {{ page.date }}</span>{% endif %}</a></li>
+	{% endfor %}
 </ul>
 
 {% if paginator %}
-<div class="metaData">{% if paginator.previous %}<a href="{{ paginator.first }}">⥶</a> &nbsp; <a href="{{ paginator.previous }}"><</a>{% endif %} &nbsp; {{ paginator.current_index }} / {{ paginator.number_pagers }} &nbsp; {% if paginator.next %}<a href="{{ paginator.next }}"></a> &nbsp; <a href="{{ paginator.last }}"></a>{% endif %}</div>
+	<div class="metaData">{% if paginator.previous %}<a href="{{ paginator.first }}">⥶</a> &nbsp; <a href="{{ paginator.previous }}"><</a>{% endif %} &nbsp; {{ paginator.current_index }} / {{ paginator.number_pagers }} &nbsp; {% if paginator.next %}<a href="{{ paginator.next }}"></a> &nbsp; <a href="{{ paginator.last }}"></a>{% endif %}</div>
 {% endif %}
 {% endblock content %}
