@@ -1,3 +1,15 @@
+:root.dark {
+	.lightOnly {
+		display: none;
+	}
+}
+
+:root.light {
+	.darkOnly {
+		display: none;
+	}
+}
+
 ::-moz-selection, ::selection {
 	color: var(--bgColor);
 	background: var(--fgColor);
@@ -99,6 +111,11 @@ img {
 	padding: .2rem;
 	border: dashed .2rem var(--metaColor);
 	border-radius: 15px;
+}
+
+.inverted {
+	-webkit-filter: invert(1);
+	filter: invert(1);	
 }
 
 iframe {

@@ -8,6 +8,12 @@ pre {
 	overflow-x: scroll;
 }
 
+:root.light {
+	pre {
+		@extend .inverted;
+	}
+}
+
 p code,
 li code,
 div code {
