@@ -115,7 +115,9 @@
 	--codeLineColor: {% if config.extra.colors.light.code_line_color %}{{ config.extra.colors.light.code_line_color }}{% else %}#FFFFFF{% endif %};
 }
 </style>
+{% if config.markdown.highlight_code and config.markdown.highlight_theme == "css" %}
 <link id="syntaxHighlighting" rel="stylesheet" type="text/css" href="{{ get_url(path='ayu-dark.css', trailing_slash=false) | safe }}" />
+{% endif %}
 <link rel="stylesheet" href="{{ get_url(path='style.css', trailing_slash=false) | safe }}"/>
 {% endblock css %}
 <script>
@@ -123,10 +125,12 @@ const setTheme = (theme) => {
 	document.documentElement.className = theme;
 	localStorage.setItem('theme', theme);
 	var link = document.getElementById('syntaxHighlighting');
+	
+	var shouldLoadSyntax = {% if config.markdown.highlight_code and config.markdown.highlight_theme == "css" %}true{% else %}false{% endif %};
 	if (theme === 'light') {
-		link.setAttribute('href', '{{ get_url(path="hl-light.css", trailing_slash=false) | safe }}');
+		link.setAttribute('href', {% if config.extra.hightlighting_css_light %}'{{ get_url(path=config.extra.highlighting_css_light) | safe }}'{% else %}'{{ get_url(path="hl-light.css") | safe }}'{% endif %});
 	} else if (theme === 'dark') {
-		link.setAttribute('href', '{{ get_url(path="hl-dark.css", trailing_slash=false) | safe }}');
+		link.setAttribute('href', {% if config.extra.hightlighting_css_dark %}'{{ get_url(path=config.extra.highlighting_css_dark) | safe }}'{% else %}'{{ get_url(path="hl-dark.css") | safe }}'{% endif %});
 	}
 }
 
