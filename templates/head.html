@@ -112,15 +112,22 @@
 	--metaColor: {% if config.extra.colors.light.meta_color %}{{ config.extra.colors.light.meta_color }}{% else %}#D26878{% endif %};
 	--linkColor: {% if config.extra.colors.light.link_color %}{{ config.extra.colors.light.link_color }}{% else %}#5690AF{% endif %};
 	--dateLinkColor: {% if config.extra.colors.light.date_link_color %}{{ config.extra.colors.light.date_link_color }}{% else %}#223844{% endif %};
-	--codeLineColor: {% if config.extra.colors.light.code_line_color %}{{ config.extra.colors.light.code_line_color }}{% else %}#CCCCCC{% endif %};
+	--codeLineColor: {% if config.extra.colors.light.code_line_color %}{{ config.extra.colors.light.code_line_color }}{% else %}#FFFFFF{% endif %};
 }
 </style>
+<link id="syntaxHighlighting" rel="stylesheet" type="text/css" href="{{ get_url(path='ayu-dark.css', trailing_slash=false) | safe }}" />
 <link rel="stylesheet" href="{{ get_url(path='style.css', trailing_slash=false) | safe }}"/>
 {% endblock css %}
 <script>
 const setTheme = (theme) => {
 	document.documentElement.className = theme;
 	localStorage.setItem('theme', theme);
+	var link = document.getElementById('syntaxHighlighting');
+	if (theme === 'light') {
+		link.setAttribute('href', '{{ get_url(path="hl-light.css", trailing_slash=false) | safe }}');
+	} else if (theme === 'dark') {
+		link.setAttribute('href', '{{ get_url(path="hl-dark.css", trailing_slash=false) | safe }}');
+	}
 }
 
 const hasCodeRun = localStorage.getItem('hasCodeRun');
