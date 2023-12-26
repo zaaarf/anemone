@@ -12,12 +12,17 @@
 {% endif %}
 
 <ul class="titleList">
+	{% if config.extra.date_format.list %}
+		{% set datefmt = config.extra.date_format.list %}
+	{% else %}
+		{% set datefmt = "@ %Y-%m-%dT%H:%M:%S%Z" %}
+	{% endif %}
 	{% for page in pages %}
-		<li><a href="{{ page.permalink | safe }}">{{ page.title }}{% if config.extra.show_date_paginator and config.extra.show_date_paginator == true %}<span class="contentDate"> @ {{ page.date }}</span>{% endif %}</a></li>
+		<li><a href="{{ page.permalink | safe }}">{{ page.title }}{% if config.extra.show_date_paginator and config.extra.show_date_paginator == true %} <span class="contentDate">{{ page.date | date(format=datefmt) }}</span>{% endif %}</a></li>
 	{% endfor %}
 </ul>
 
 {% if paginator %}
-	<div class="metaData">{% if paginator.previous %}<a href="{{ paginator.first }}">⥶</a> &nbsp; <a href="{{ paginator.previous }}"><</a>{% endif %} &nbsp; {{ paginator.current_index }} / {{ paginator.number_pagers }} &nbsp; {% if paginator.next %}<a href="{{ paginator.next }}"></a> &nbsp; <a href="{{ paginator.last }}"></a>{% endif %}</div>
+	<div class="metaData">{% if paginator.previous %}<a href="{{ paginator.first }}">⥶</a> &nbsp; <a href="{{ paginator.previous }}"></a>{% endif %} &nbsp; {{ paginator.current_index }} / {{ paginator.number_pagers }} &nbsp; {% if paginator.next %}<a href="{{ paginator.next }}"></a> &nbsp; <a href="{{ paginator.last }}"></a>{% endif %}</div>
 {% endif %}
 {% endblock content %}

@@ -2,7 +2,12 @@
 
 {% block content %}
 <div><a href="..">..</a>/<span class="metaData">{{ page.slug }}</span></div>
-<time datetime="{{ page.date }}">Published on: <span class="metaData">{{ page.date }}</span></time>
+{% if config.extra.date_format.post %}
+	{% set datefmt = config.extra.date_format.post %}
+{% else %}
+	{% set datefmt = "%Y-%m-%dT%H:%M:%S%Z" %}
+{% endif %}
+<time datetime="{{ page.date }}">Published on: <span class="metaData">{{ page.date | date(format=datefmt) }}</span></time>
 {% if config.extra.author and config.extra.display_author == true %}
 	<address rel="author">By <span class="metaData">{{config.extra.author}}</span></address>
 {% endif %}
