@@ -18,3 +18,7 @@ div code {
 p code, li code {
 	background-color: var(--codeLineColor);
 }
+
+a:hover code {
+	background-color: var(--linkColor);
+}
