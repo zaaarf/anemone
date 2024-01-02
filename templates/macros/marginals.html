@@ -1,5 +1,5 @@
 {% macro logo() %}
-<a href="{{ config.extra.logo.url | default(value=config.base_url) }}" class="logo-link">
+<a href="{% if config.extra.logo.url and config.extra.logo.url == true %}{{ config.extra.logo.url }}{% else %}{{ config.base_url }}{% endif %}" class="logo-link">
 	<div class="logo">
 		{% if config.extra.logo.path %}
 			<img src="{{ config.extra.logo.path }}"
