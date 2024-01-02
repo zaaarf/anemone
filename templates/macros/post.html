@@ -1,7 +1,8 @@
+{% macro toc(toc) %}
 <div class="toc">
 <h2>Table of contents</h2>
 <ul>
-	{% for h1 in page.toc %}
+	{% for h1 in toc %}
 	<li>
 		<a href="{{ h1.permalink | safe }}">{{ h1.title }}</a>
 		{% if h1.children %}
@@ -24,3 +25,14 @@
 	{% endfor %}
 </ul>
 </div>
+{% endmacro toc %}
+
+{% macro tags(tags) %}
+<p class="tags-data">
+	{% if page.taxonomies.tags %}
+		{% for tag in tags %}
+			<a href="/tags/{{ tag | slugify }}">&#47;{{ tag }}&#47;</a>
+		{% endfor %}
+	{% endif %}
+</p>
+{% endmacro tags %}

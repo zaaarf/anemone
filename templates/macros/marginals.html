@@ -1,0 +1,78 @@
+{% macro logo() %}
+<a href="{{ config.extra.logo.url | default(value=config.base_url) }}" class="logo-link">
+	<div class="logo">
+		{% if config.extra.logo.path %}
+			<img src="{{ config.extra.logo.path }}"
+			{% if config.extra.logo.alt %}
+				alt="{{ config.extra.logo.alt }}"
+			{% endif %}
+			/>
+		{% else %}
+			<span class="logo-text">
+				{{ config.extra.logo.text | default(value="home") }}
+			</span>
+			<span class="logo-cursor" style="
+				{% if config.extra.logo.cursor.enabled %}
+					{% if config.extra.logo.cursor.enabled != true %}
+						visibility: hidden;
+					{% endif %}
+				{% endif %}
+				{% if config.extra.logo.cursor.color %}
+					background-color: {{ config.extra.logo.cursor.color }};
+				{% endif %}
+				{% if config.extra.logo.cursor.animate %}
+					animation-duration: {{ config.extra.logo.cursor.animate }};
+				{% endif %}
+			">
+			</span>
+		{% endif %}
+	</div>
+</a>
+{% endmacro logo %}
+
+{% macro navbar(current_lang) %}
+{% if config.extra.header_nav %}
+<nav class="navbar">
+	{{ self::logo() }}
+	<div class="theme-button">
+		<button
+			class="theme-button light-only"
+			onclick="setTheme('dark')"
+			title="Dark mode">
+			<svg class="icons icons-background">
+				<use href="{{ get_url(path='icons.svg#darkMode', trailing_slash=false) | safe }}"></use>
+			</svg>
+		</button>
+		<button
+			class="theme-button dark-only"
+			onclick="setTheme('light')"
+			title="Light mode">
+			<svg class="icons icons-background">
+				<use href="{{ get_url(path='icons.svg#lightMode', trailing_slash=false) | safe }}"></use>
+			</svg>
+		</button>
+	</div>
+	<div class="navbar-right">
+		{% for nav_item in config.extra.header_nav %}
+			<a href="{{ nav_item.url }}" class="{% if current_url and nav_item.url == current_url %}active{% endif %}">{% set language_key = 'name_' ~ current_lang %}{{ nav_item[language_key] }}</a>
+		{% endfor %}
+	</div>
+</nav>
+{% endif %}
+{% endmacro navbar %}
+
+{% macro footer() %}
+<hr>
+<div class=foot-container>
+	<div class="foot-left">
+		<p>Licensed under the <a target="_blank" rel="noopener noreferrer" href="https://en.wikipedia.org/wiki/MIT_License">MIT License</a>.<br>
+		Built with <a target="_blank" rel="noopener noreferrer" href="https://www.getzola.org">Zola</a> using the <a target="_blank" rel="noopener noreferrer" href="https://git.fantabos.co/friendenstein">friendenstein</a> theme.<br>
+		</p>
+	</div>
+	{% if config.generate_feed %}
+		<div class="foot-right">
+			<a class="icons-background" target="_blank" rel="noopener noreferrer" href="{{ get_url(path="atom.xml", trailing_slash=false) }}" title="Subscribe via RSS for updates."><svg class="icons icons-background"><use href="{{ get_url(path='icons.svg#rss', trailing_slash=false) | safe }}"></use></svg></a>
+		</div>
+	{% endif %}
+</div>
+{% endmacro footer %}

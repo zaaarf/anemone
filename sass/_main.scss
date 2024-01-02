@@ -12,12 +12,6 @@
 	}
 }
 
-:root.light {
-	.darkOnly {
-		display: none;
-	}
-}
-
 ::-moz-selection, ::selection {
 	color: var(--bgColor);
 	background: var(--fgColor);
@@ -161,13 +155,13 @@ footer {
 	color: var(--fgColor);
 	background-color: transparent;
 
-	&__background:hover, &__background:focus {
+	&-background:hover, &-background:focus {
 		color: var(--linkColor);
 		background-color: transparent;
 	}
 }
 
-.tagsData {
+.tags-data {
 	display: flex;
 	flex-direction: column;
 	flex-wrap: wrap;

@@ -10,15 +10,20 @@
 		height: 44px;
 	}
 
-	&__mark {
+	&-link {
+		text-decoration: none;
+		float: left;
+	}
+
+	&-mark {
 		margin-right: 5px;
 	}
 
-	&__text {
+	&-text {
 		white-space: nowrap;
 	}
 
-	&__cursor {
+	&-cursor {
 		display: inline-block;
 		width: 10px;
 		height: 1.5rem;
@@ -29,7 +34,7 @@
 	}
 
 	@media (prefers-reduced-motion: reduce) {
-		&__cursor {
+		&-cursor {
 				animation: none;
 		}
 	}

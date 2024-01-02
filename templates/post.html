@@ -1,6 +1,6 @@
-{% extends "base.html" %}
+{% extends "page.html" %}
 
-{% block content %}
+{% block pre_content %}
 <div><a href="..">..</a>/<span class="metadata">{{ page.slug }}</span></div>
 {% if config.extra.date_format.post %}
 	{% set datefmt = config.extra.date_format.post %}
@@ -11,7 +11,4 @@
 {% if config.extra.author and config.extra.display_author == true %}
 	<address rel="author">By <span class="metadata">{{config.extra.author}}</span></address>
 {% endif %}
-
-<article>{% include "base-page.html" %}</article>
-
-{% endblock content %}
+{% endblock pre_content %}
