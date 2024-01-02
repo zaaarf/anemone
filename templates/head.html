@@ -128,9 +128,9 @@ const setTheme = (theme) => {
 	
 	var shouldLoadSyntax = {% if config.markdown.highlight_code and config.markdown.highlight_theme == "css" %}true{% else %}false{% endif %};
 	if (theme === 'light') {
-		link.setAttribute('href', {% if config.extra.hightlighting_css_light %}'{{ get_url(path=config.extra.highlighting_css_light) | safe }}'{% else %}'{{ get_url(path="hl-light.css") | safe }}'{% endif %});
+		link.setAttribute('href', {% if config.extra.colors.light.hightlighting %}'{{ get_url(path=config.extra.colors.light.hightlighting) | safe }}'{% else %}'{{ get_url(path="hl-light.css") | safe }}'{% endif %});
 	} else if (theme === 'dark') {
-		link.setAttribute('href', {% if config.extra.hightlighting_css_dark %}'{{ get_url(path=config.extra.highlighting_css_dark) | safe }}'{% else %}'{{ get_url(path="hl-dark.css") | safe }}'{% endif %});
+		link.setAttribute('href', {% if config.extra.colors.dark.hightlighting %}'{{ get_url(path=config.extra.colors.dark.hightlighting) | safe }}'{% else %}'{{ get_url(path="hl-dark.css") | safe }}'{% endif %});
 	}
 }
 

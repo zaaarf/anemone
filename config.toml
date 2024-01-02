@@ -13,7 +13,7 @@ default_language = "en"
 minify_html = false
 
 taxonomies = [
-    {name = "tags", feed = true},
+	{name = "tags", feed = true},
 ]
 
 [languages.fr]
@@ -29,13 +29,11 @@ highlight_code = true
 
 # If you use CSS mode, make sure to add two themes - one for light mode,
 # one for dark mode. In particular, hl-dark.css and hl-light.css are the
-# default names. If you wish to use different names, set the properties
-# highlighting_css_dark and highlighting_css_light under extra.
-# TODO: move them under extra.colors.
+# default names. If you wish to use different names, see [extra.colors].
 highlight_theme = "css"
 highlight_themes_css = [
-  { theme = "agola-dark", filename = "hl-dark.css" },
-  { theme = "idle", filename = "hl-light.css" }
+	{ theme = "agola-dark", filename = "hl-dark.css" },
+	{ theme = "idle", filename = "hl-light.css" }
 ]
 
 [slugify]
@@ -48,29 +46,31 @@ internal_level = "warn"
 
 [extra]
 # Stuff inherited from anemone
-# TODO: ensure they still work properly, or remove.
 favicon = "favicon.ico"
-list_pages = false
 twitter_card = true
 
 # Default theme when people join the site. "dark" and "light" are the
 # only valid values. By default, it's dark.
 default_theme = "dark"
 
+# Cursor logo, imported from hello-friend-ng
+logo = { text = "> $ cd ~/zaaarf/" }
 header_nav = [
-  { url = "/", name_en = "/home/", name_fr = "/accueil/" },
-  { url = "/about", name_en = "/about/", name_fr = "/concernant/" },
-  { url = "/journal", name_en = "/journal/", name_fr = "/journal/" },
-  { url = "/blog", name_en = "/blog/", name_fr = "/blog/" }
+	{ url = "/", name_en = "/home/", name_fr = "/accueil/" },
+	{ url = "/about", name_en = "/about/", name_fr = "/concernant/" },
+	{ url = "/journal", name_en = "/journal/", name_fr = "/journal/" },
+	{ url = "/blog", name_en = "/blog/", name_fr = "/blog/" }
 ]
 
-# Stuff inspired by hello-friend-ng, allows you to present a simple yet complete homepage
-# TODO: move this stuff under a separate tag
-home_title = "zaaarf"
-home_subtitle = "developer, software engineer"
-home_subtitle_suffixes = [
+# Homepage configuration stuff
+[extra.home]
+title = "you"
+subtitle = "your subtitle"
+subtitle_suffixes = [
 	", this",
-	
+	", text",
+	", is",
+	", random!"
 ]
 
 # Social icons, list here: https://github.com/rhazdon/hugo-theme-hello-friend-ng/blob/master/layouts/partials/svg.html
@@ -81,8 +81,6 @@ social_icons = [
 	{ name = "email", url = "mailto:me@zaaarf.foo" }
 ]
 
-logo = { text = "> $ cd ~/zaaarf/" }
-
 # Valid keys are "post" and "list", one referring to individual blogposts,
 # the other referring to lists of posts in sections.
 # You may set "list" to whitespace(s) to disable displaying dates in sections.
@@ -90,6 +88,14 @@ logo = { text = "> $ cd ~/zaaarf/" }
 # for formatting instructions.
 [extra.date_format]
 
+# Theme customisation settings. Valid keys:
+# - hightlighting: sets a custom CSS file for syntax highlighting. 
+# - bgColor: used for the background.
+# - fgColor: used for text.
+# - metaColor: the "theme" color of the website, used for several things.
+# - linkColor: used for links.
+# - dateLinkColor: used for the date in the pagination, if enabled.
+# - codeLineColor: used for the background of <code> blocks.
 [extra.colors.dark]
 meta_color = "#FF4D17"
 

@@ -1,9 +1,9 @@
-.navBar {
+.navbar {
 	padding: 1rem 0 0 0;
 	gap: .4rem;
 	flex-wrap: wrap;
 
-	.navBarRight {
+	&-right {
 		float: right;
 
 		a {
@@ -11,7 +11,7 @@
 		}
 	}
 
-	div.themeButton {
+	div.theme-button {
 		float: right;
 		padding: 0 0 0 1em;
 
@@ -23,27 +23,27 @@
 	}
 }
 
-.dark .themeButton.dark,
-.themeButton.light {
+.dark .theme-button.dark,
+.theme-button.light {
 	display: none
 }
 
-.dark .themeButton.light {
+.dark .theme-button.light {
 	display: block
 }
 
 @media (max-width: 650px) {
-	.navBar {
+	.navbar {
 		display: flex;
 		flex-wrap: wrap;
 		align-items: center;
 		justify-content: center;
 
-		.navBarRight {
+		&-right {
 			float: center;
 		}
 
-		.themeButton {
+		.theme-button {
 			float: center;
 		}
 	}

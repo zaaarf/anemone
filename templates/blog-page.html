@@ -1,15 +1,15 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div><a href="..">..</a>/<span class="metaData">{{ page.slug }}</span></div>
+<div><a href="..">..</a>/<span class="metadata">{{ page.slug }}</span></div>
 {% if config.extra.date_format.post %}
 	{% set datefmt = config.extra.date_format.post %}
 {% else %}
 	{% set datefmt = "%Y-%m-%dT%H:%M:%S%Z" %}
 {% endif %}
-<time datetime="{{ page.date }}">Published on: <span class="metaData">{{ page.date | date(format=datefmt) }}</span></time>
+<time datetime="{{ page.date }}">Published on: <span class="metadata">{{ page.date | date(format=datefmt) }}</span></time>
 {% if config.extra.author and config.extra.display_author == true %}
-	<address rel="author">By <span class="metaData">{{config.extra.author}}</span></address>
+	<address rel="author">By <span class="metadata">{{config.extra.author}}</span></address>
 {% endif %}
 
 <article>{% include "base-page.html" %}</article>

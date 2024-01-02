@@ -130,7 +130,7 @@ footer {
 	text-align: center;
 }
 
-.metaData, .themeButton {
+.metadata, .theme-button {
 	color: var(--metaColor);
 }
 
@@ -168,11 +168,11 @@ footer {
 	align-content: flex-end
 }
 
-.titleList li {
+.title-list li {
 	margin-bottom: .75rem;
 	text-align: left;
 	
-	span.contentDate {
+	span.content-date {
 		color: var(--dateLinkColor);
 	}
 }
@@ -190,30 +190,15 @@ footer {
 	}
 }
 
-.footContainer {
+.foot-container {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
 	align-items: center;
 }
 
-.noStyle {
-	padding: 0;
-	margin: 0;
-	border: none;
-	border-radius: 0
-}
-
-.textCenter {
+.text-center {
 	text-align: center;
-}
-
-.floatRight {
-	float: right
-}
-
-.floatLeft {
-	float: left
 }
 
 .webring {
@@ -234,7 +219,7 @@ div.toc {
 		text-align: center;
 	}
 
-	 a span.contentDate {
+	 a span.content-date {
 		display: none;
 	}
 
@@ -242,7 +227,7 @@ div.toc {
 		margin: 1rem;
 	}
 
-	.footContainer {
+	.foot-container {
 		justify-content: center; 
 	}
 }
