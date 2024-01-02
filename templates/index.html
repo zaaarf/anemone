@@ -1,3 +1,4 @@
+{% import "macros/svg.html" as svg %}
 {% extends "base.html" %}
 
 {% block content %}
@@ -8,22 +9,23 @@
 	<h1>{{ config.title }}</h1>
 	{% endif %}
 	{% if config.extra.home.subtitle %}
-		<p>{{ config.extra.home.subtitle }}<span id="subtitleRand"></span></p>
+		<p>{{ config.extra.home.subtitle }}<span id="subtitle-rand"></span></p>
 	{% elif config.description %}
-		<p>{{ config.description }}<span id="subtitleRand"></span></p>
+		<p>{{ config.description }}<span id="subtitle-rand"></span></p>
 	{% endif %}
-	{% include "svg.html" %}
+	{% if config.extra.home.social_icons %}
+		{{ svg::draw_icons(icons=config.extra.home.social_icons) }}
+	{% endif %}
 </div></div>
 {% if config.extra.home.subtitle_suffixes %}
-
-<script>
+<script> //random subtitle logic
 const suffixes = [
 	{% for s in config.extra.home.subtitle_suffixes %}
 	"{{ s }}",
 	{% endfor %}
 ]
 var current = suffixes[Math.floor(Math.random() * suffixes.length)];
-var span = document.getElementById("subtitleRand");
+var span = document.getElementById("subtitle-rand");
 span.textContent = current;
 </script>
 {% endif %}

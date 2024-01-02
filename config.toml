@@ -75,10 +75,11 @@ subtitle_suffixes = [
 
 # Social icons, list here: https://github.com/rhazdon/hugo-theme-hello-friend-ng/blob/master/layouts/partials/svg.html
 social_icons = [
-	{ name = "github", url = "https://github.com/zaaarf" },
-	{ name = "codeberg", url = "https://codeberg.org/zaaarf" },
-	{ name = "matrix", url = "https://matrix.to/#/@zaaarf:fantabos.co" },
-	{ name = "email", url = "mailto:me@zaaarf.foo" }
+	{ name = "github", at = "https://github.com/zaaarf" },
+	{ name = "codeberg", at = "https://codeberg.org/zaaarf" },
+	{ name = "matrix", at = "https://matrix.to/#/@zaaarf:fantabos.co" },
+	{ name = "discord", at = "@zaaarf", link = false },
+	{ name = "email", at = "mailto:me@zaaarf.foo" }
 ]
 
 # Valid keys are "post" and "list", one referring to individual blogposts,

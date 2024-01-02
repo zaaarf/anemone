@@ -1,6 +1,14 @@
-:root.dark {
-	.lightOnly {
-		display: none;
+:root {
+	&.dark {
+		.light-only {
+			display: none;
+		}
+	}
+
+	&.light {
+		.dark-only {
+			display: none;
+		}
 	}
 }
 
