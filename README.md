@@ -1,0 +1,4 @@
+# Friendenstein
+My own theme for [zola](https://getzola.org/). As the name suggests, it's made by sewing up together pieces of other themes, with original pieces here and there. I feel that it has, at this point, diverged enough from [anemone](https://github.com/Speyll/anemone) and [hello-friend-ng](https://github.com/rhazdon/hugo-theme-hello-friend-ng/), the main donators, to call it its own thing.
+
+I'd say it *looks* fine, and I tried to make it as customizable as humanly possible, but professionals will probably seethe in disgust reading the source: I am very much not a web developer or designer. I tried to avoid JavaScript as much as possible; presently there are only two small scripts, one to process the random sentence in the homepage and the other to handle switching between light and dark modes (blatantly stolen from `anemone`).
