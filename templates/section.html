@@ -5,11 +5,11 @@
 
 {{ section.content | safe }}
 
-{% if paginator %}
-	{% set pages = paginator.pages %}
-{% else %}
-	{% set pages = section.pages %}
-{% endif %}
+{%- if paginator -%}
+	{%- set pages = paginator.pages -%}
+{%- else -%}
+	{% set pages = section.pages -%}
+{%- endif -%}
 
 <ul class="title-list">
 	{%- for page in pages -%}
@@ -22,7 +22,12 @@
 		{%- else -%}
 			{% set datefmt = " @ %Y-%m-%dT%H:%M:%S%Z" %}
 		{%- endif -%}
-		<li><a href="{{ page.permalink | safe }}">{{ page.title }}
+		{%- if page.extra.redirect -%}
+			{%- set page_link = page.extra.redirect -%}
+		{%- else -%}
+			{%- set page_link = page.permalink -%}
+		{%- endif -%}
+		<li><a href="{{ page_link | safe }}">{{ page.title }}
 			{%- if section.extra.show_subtitle and section.extra.show_subtitle == true and page.extra.subtitle -%}
 				<span class="content-subtitle"> - {{ page.extra.subtitle }}</span>
 			{%- endif -%}

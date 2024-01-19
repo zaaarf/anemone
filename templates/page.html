@@ -17,6 +17,10 @@
 			{{ marginals::navbar(current_lang=current_lang) }}
 		</header>
 		<main>
+			{%- if page.extra.redirect -%}
+				<meta http-equiv="Refresh" content="0; url='{{ page.extra.redirect }}'" />
+			{%- endif -%}
+
 			{% block pre_content %}
 			{% endblock pre_content %}
 			<article>
