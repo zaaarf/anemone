@@ -2,13 +2,17 @@
 
 {% block pre_content %}
 <div><a href="..">..</a>/<span class="metadata">{{ page.slug }}</span></div>
-{% if config.extra.date_format.post %}
-	{% set datefmt = config.extra.date_format.post %}
-{% else %}
-	{% set datefmt = "%Y-%m-%dT%H:%M:%S%Z" %}
-{% endif %}
+{%- if page.extra.date_format.post -%}
+	{%- set datefmt = page.extra.date_format.post -%}
+{%- elif section.extra.date_format.post -%}
+	{%- set datefmt = section.extra.date_format.post -%}
+{%- elif config.extra.date_format.post -%}
+	{%- set datefmt = config.extra.date_format.post -%}
+{%- else -%}
+	{%- set datefmt = "%Y-%m-%dT%H:%M:%S%Z" -%}
+{%- endif -%}
 <time datetime="{{ page.date }}">Published on: <span class="metadata">{{ page.date | date(format=datefmt) }}</span></time>
-{% if config.extra.author and config.extra.display_author == true %}
+{%- if config.extra.author and config.extra.display_author == true -%}
 	<address rel="author">By <span class="metadata">{{config.extra.author}}</span></address>
-{% endif %}
+{%- endif -%}
 {% endblock pre_content %}

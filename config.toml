@@ -62,6 +62,11 @@ header_nav = [
 	{ url = "/blog", name_en = "/blog/", name_fr = "/blog/" }
 ]
 
+# Enable KaTeX for mathematical typesetting.
+# Even if you enable it here, you still have to enable it on a per-page
+# basis by setting setting extra.math to true.
+enable_katex = false
+
 # Homepage configuration stuff
 [extra.home]
 title = "you"
@@ -85,6 +90,7 @@ social_icons = [
 # Valid keys are "post" and "list", one referring to individual blogposts,
 # the other referring to lists of posts in sections.
 # You may set "list" to whitespace(s) to disable displaying dates in sections.
+# May be configured on section and page level as well.
 # Refer to https://docs.rs/chrono/0.4.31/chrono/format/strftime/index.html
 # for formatting instructions.
 [extra.date_format]

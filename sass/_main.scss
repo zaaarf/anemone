@@ -175,7 +175,11 @@ footer {
 	text-align: left;
 	
 	span.content-date {
-		color: var(--dateLinkColor);
+		color: var(--darkLinkColor);
+	}
+	
+	span.content-subtitle {
+		color: var(--darkLinkColor);
 	}
 }
 

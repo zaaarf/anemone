@@ -12,14 +12,23 @@
 {% endif %}
 
 <ul class="title-list">
-	{% if config.extra.date_format.list %}
-		{% set datefmt = config.extra.date_format.list %}
-	{% else %}
-		{% set datefmt = " @ %Y-%m-%dT%H:%M:%S%Z" %}
-	{% endif %}
-	{% for page in pages %}
-		<li><a href="{{ page.permalink | safe }}">{{ page.title }}<span class="content-date">{{ page.date | date(format=datefmt) }}</span></a></li>
-	{% endfor %}
+	{%- for page in pages -%}
+		{%- if page.extra.date_format.list -%}	
+			{%- set datefmt = page.extra.date_format.list -%}
+		{%- elif section.extra.date_format.list -%}
+			{%- set datefmt = section.extra.date_format.list -%}
+		{%- elif config.extra.date_format.list -%}
+			{%- set datefmt = config.extra.date_format.list -%}
+		{%- else -%}
+			{% set datefmt = " @ %Y-%m-%dT%H:%M:%S%Z" %}
+		{%- endif -%}
+		<li><a href="{{ page.permalink | safe }}">{{ page.title }}
+			{%- if section.extra.show_subtitle and section.extra.show_subtitle == true and page.extra.subtitle -%}
+				<span class="content-subtitle"> - {{ page.extra.subtitle }}</span>
+			{%- endif -%}
+			<span class="content-date">{{ page.date | date(format=datefmt) }}</span>
+		</a></li>
+	{%- endfor -%}
 </ul>
 
 {% if paginator %}
