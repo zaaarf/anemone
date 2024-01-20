@@ -17,7 +17,23 @@
 		{{ svg::draw_icons(icons=config.extra.home.social_icons) }}
 	{% endif %}
 </div></div>
-{% if config.extra.home.subtitle_suffixes %}
+{% if config.extra.home.random_api and config.extra.home.random_api_param %}
+<script>
+async function fetchSubtitle() {
+	let element = document.getElementById("subtitle-rand")
+	try {
+	let res = await fetch("{{ config.extra.home.random_api | safe }}");
+		let doc = await res.json();
+		element.innerHTML = `${doc.{{ config.extra.home.random_api_param }}}`;
+	} catch (e) {
+		console.log(e);
+		element.textContent = ", seemingly incapable to configure nginx";
+	}
+}
+
+fetchSubtitle();
+</script>
+{% elif config.extra.home.subtitle_suffixes %}
 <script> //random subtitle logic
 const suffixes = [
 	{% for s in config.extra.home.subtitle_suffixes %}

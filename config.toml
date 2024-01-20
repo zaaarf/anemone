@@ -78,6 +78,12 @@ subtitle_suffixes = [
 	", random!"
 ]
 
+# You can fetch the subtitles from an API instead, setting these two parameters:
+# random_api = "api.url" # url of the API
+# random_api_param = "name" # parameter within the JSON to look at for
+# I recommend https://git.alemi.dev/mood/ for this, in that case "mood" would the random_api_param,
+# and the url would be wherever you set the endpoint to be.
+
 # Social icons, list here: https://github.com/rhazdon/hugo-theme-hello-friend-ng/blob/master/layouts/partials/svg.html
 social_icons = [
 	{ name = "github", at = "https://github.com/zaaarf" },
