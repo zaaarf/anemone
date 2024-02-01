@@ -59,13 +59,16 @@ div.home-container {
 			border-left: 4px solid transparent;
 			border-right: 4px solid transparent;
 			border-bottom: 4px solid var(--metaColor);
+			padding-top: .5em;
 		}
 
 		&-inner {
+			padding-top: .5em;
+			font-weight: bold;
 			position: relative;
-			padding: .2em .5em;
-			border: thin solid var(--metaColor);
-			border-radius: 2px;
+			padding: .4em 1em;
+			border: 2px dashed var(--metaColor);
+			border-radius: 0.8rem;
 			
 			&:before {
 				content: "";
@@ -77,6 +80,7 @@ div.home-container {
 				right: 0;
 				z-index: -1;
 				box-shadow: 0 0 20px 1px #000;
+				border-radius: 0.8rem;
 			}
 		}
 	}
