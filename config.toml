@@ -3,7 +3,7 @@
 base_url = "https://anemone.pages.dev"
 description = "A minimalist Zola theme that prioritizes clean CSS and avoids heavy JavaScript. Enjoy a seamless user experience with lightning-fast load times. Let your content take center stage in a clutter-free, elegant design that enhances readability. Responsive and efficient, anemone brings focus to your ideas."
 compile_sass = false
-generate_feed = true
+generate_feeds = true
 default_language = "en"
 
 # IMPORTANT! Keep this disabled: HTML minifying currently breaks our CSS!
